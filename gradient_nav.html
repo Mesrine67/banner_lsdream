@@ -22,8 +22,8 @@
 
         .banner {
             position: relative;
-            width: 480px;
-            height: 132px;
+            width: 512px; /* Largeur modifiée */
+            height: 64px; /* Hauteur modifiée */
             background-image: linear-gradient(90deg, rgba(184, 117, 55, 0.5), black); /* Direction horizontale 90deg */
             background-size: 100% 100%;
             animation: colorChange 3s infinite ease-in-out;
@@ -43,16 +43,6 @@
             background-image: url('https://raw.githubusercontent.com/Mesrine67/banner_lsdream/main/background.png');
             background-size: 100%;
             animation: backgroundMove 20s infinite ease-in-out;
-        }
-
-        .text {
-            position: relative;
-            font-size: min(max(20px, 7vw), 50px);
-            color: white;
-            font-weight: bold;
-            user-select: none;
-            z-index: 3;
-            text-shadow: 1px 1px 2px #0000007d;
         }
 
         @keyframes backgroundMove {
@@ -85,7 +75,6 @@
 <body>
     <div class="container_banner">
         <div class="banner" id="banner">
-            <span class="text" id="bannerText"> </span>
             <div class="fivem-img" id="fivemImg"></div>
         </div>
     </div>
@@ -99,24 +88,12 @@
             return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
         }
 
-        // Appliquer les paramètres dynamiques
-        const bannerText = getUrlParameter('name');
+        // Appliquer les paramètres dynamiques uniquement pour la couleur
         const bannerColor = getUrlParameter('color');
-        const showImg = getUrlParameter('showImg') === 'true';
-
-        // Modifier le texte de la bannière
-        if (bannerText) {
-            document.getElementById('bannerText').textContent = bannerText;
-        }
 
         // Modifier la couleur de la bannière
         if (bannerColor) {
             document.getElementById('banner').style.backgroundImage = `linear-gradient(90deg, ${bannerColor}, black)`; // Ajusté pour le changement de couleur de gauche à droite
-        }
-
-        // Afficher ou masquer l'image de fond
-        if (!showImg) {
-            document.getElementById('fivemImg').style.display = 'none';
         }
     </script>
 </body>
