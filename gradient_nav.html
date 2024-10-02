@@ -24,7 +24,7 @@
             position: relative;
             width: 512px; /* Largeur modifiée */
             height: 64px; /* Hauteur modifiée */
-            background-image: linear-gradient(60deg, black, rgba(184, 117, 55, 0.5)); /* Le noir est maintenant à gauche */
+            background-image: linear-gradient(90deg, rgba(184, 117, 55, 0.5), black); /* Le noir est maintenant à droite */
             background-size: 100% 100%;
             animation: colorChange 5s infinite ease-in-out;
             display: flex;
@@ -94,7 +94,7 @@
 
         // Modifier la couleur de la bannière
         if (bannerColor) {
-            document.getElementById('banner').style.backgroundImage = `linear-gradient(90deg, black, ${bannerColor})`; // Ajusté pour que le noir soit à gauche
+            document.getElementById('banner').style.backgroundImage = `linear-gradient(90deg, ${bannerColor}, black)`; // Ajusté pour que le noir soit à droite
         }
 
         // Afficher ou masquer l'image de fond
