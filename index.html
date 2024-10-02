@@ -83,37 +83,40 @@
     </style>
 </head>
 <body>
-
     <div class="container_banner">
         <div class="banner" id="banner">
             <span class="text" id="bannerText">PaPi</span>
-            <div class="fivem-img" id="bannerImage"></div>
+            <div class="fivem-img" id="fivemImg"></div>
         </div>
     </div>
 
     <script>
-        // Fonction pour obtenir les paramètres de l'URL
-        function getUrlParams() {
-            const params = new URLSearchParams(window.location.search);
-            return {
-                name: params.get('name') || 'PaPi',
-                color: params.get('color') || 'rgba(184, 117, 55, 0.5)',
-                showImg: params.get('showImg') !== 'false'
-            };
+        // Fonction pour récupérer les paramètres de l'URL
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
         }
 
-        // Appliquer les paramètres de l'URL
-        const { name, color, showImg } = getUrlParams();
+        // Appliquer les paramètres dynamiques
+        const bannerText = getUrlParameter('name');
+        const bannerColor = getUrlParameter('color');
+        const showImg = getUrlParameter('showImg') === 'true';
 
-        // Mettre à jour le texte
-        document.getElementById('bannerText').innerText = name;
+        // Modifier le texte de la bannière
+        if (bannerText) {
+            document.getElementById('bannerText').textContent = bannerText;
+        }
 
-        // Mettre à jour la couleur
-        document.getElementById('banner').style.backgroundImage = `linear-gradient(0deg, ${color}, black)`;
+        // Modifier la couleur de la bannière
+        if (bannerColor) {
+            document.getElementById('banner').style.backgroundImage = `linear-gradient(0deg, ${bannerColor}, black)`;
+        }
 
-        // Afficher ou masquer l'image
+        // Afficher ou masquer l'image de fond
         if (!showImg) {
-            document.getElementById('bannerImage').style.display = 'none';
+            document.getElementById('fivemImg').style.display = 'none';
         }
     </script>
 </body>
