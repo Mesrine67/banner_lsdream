@@ -92,7 +92,12 @@
             // Lire le paramètre showImg
             const showImg = getQueryParam('showImg');
             if (showImg === 'false') {
-                document.querySelector('.fivem-img').style.display = 'none'; // Cacher l'image de fond
+                const imgElement = document.querySelector('.fivem-img');
+                if (imgElement) {
+                    imgElement.style.display = 'none'; // Cacher l'image de fond
+                } else {
+                    console.error('Element .fivem-img not found');
+                }
             }
         }
     </script>
