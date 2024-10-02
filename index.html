@@ -67,16 +67,53 @@
             z-index: 1;
         }
 
-        .beat-fade-img:nth-child(2) {
+        /* Ajout de plusieurs instances de .beat-fade-img avec différentes positions et délais */
+        .beat-fade-img:nth-child(3) {
             left: 50px;
             top: 10px;
+            animation-delay: 0.5s;
+        }
+
+        .beat-fade-img:nth-child(4) {
+            left: 100px;
+            top: 50px;
             animation-delay: 1s;
         }
 
-        .beat-fade-img:nth-child(3) {
-            left: 400px;
+        .beat-fade-img:nth-child(5) {
+            left: 150px;
+            top: 90px;
+            animation-delay: 1.5s;
+        }
+
+        .beat-fade-img:nth-child(6) {
+            left: 200px;
             top: 30px;
             animation-delay: 2s;
+        }
+
+        .beat-fade-img:nth-child(7) {
+            left: 250px;
+            top: 70px;
+            animation-delay: 2.5s;
+        }
+
+        .beat-fade-img:nth-child(8) {
+            left: 300px;
+            top: 40px;
+            animation-delay: 3s;
+        }
+
+        .beat-fade-img:nth-child(9) {
+            left: 350px;
+            top: 60px;
+            animation-delay: 3.5s;
+        }
+
+        .beat-fade-img:nth-child(10) {
+            left: 400px;
+            top: 30px;
+            animation-delay: 4s;
         }
 
         @keyframes backgroundMove {
@@ -122,6 +159,12 @@
         <div class="banner" id="banner">
             <span class="text" id="bannerText"> </span>
             <div class="fivem-img" id="fivemImg"></div>
+            <div class="beat-fade-img"></div>
+            <div class="beat-fade-img"></div>
+            <div class="beat-fade-img"></div>
+            <div class="beat-fade-img"></div>
+            <div class="beat-fade-img"></div>
+            <div class="beat-fade-img"></div>
             <div class="beat-fade-img"></div>
             <div class="beat-fade-img"></div>
         </div>
