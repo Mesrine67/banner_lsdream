@@ -22,9 +22,9 @@
 
         .banner {
             position: relative;
-            width: 512px; /* Largeur modifiée */
-            height: 64px; /* Hauteur modifiée */
-            background-image: linear-gradient(50deg, rgba(184, 55, 55, 0.8),  black); /* Le noir est maintenant à droite */
+            width: 512px;
+            height: 64px;
+            background-image: linear-gradient(50deg, rgba(184, 55, 55, 0.8), black); 
             background-size: 100% 100%;
             animation: colorChange 5s infinite ease-in-out;
             display: flex;
@@ -40,7 +40,6 @@
             height: 100%;
             z-index: 2;
             opacity: .1;
-            background-image: url('https://raw.githubusercontent.com/Mesrine67/banner_lsdream/main/background.png');
             background-size: 100%;
             animation: backgroundMove 20s infinite ease-in-out;
         }
@@ -61,13 +60,13 @@
 
         @keyframes colorChange {
             from {
-                background-size: 100% 100%; /* Taille initiale */
+                background-size: 100% 100%; 
             } 
             50% {
-                background-size: 500% 500%; /* Taille plus grande pour des mouvements plus amples */
+                background-size: 500% 500%; 
             } 
             to {
-                background-size: 100% 100%; /* Retour à la taille initiale */
+                background-size: 100% 100%;
             }
         }
     </style>
@@ -88,13 +87,19 @@
             return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
         }
 
-        // Appliquer les paramètres dynamiques uniquement pour la couleur et l'affichage de l'image
+        // Appliquer les paramètres dynamiques pour la couleur et l'image de fond
         const bannerColor = getUrlParameter('color');
         const showImg = getUrlParameter('showImg') === 'true';
+        const fivemImg = getUrlParameter('fivemImg');
 
         // Modifier la couleur de la bannière
         if (bannerColor) {
-            document.getElementById('banner').style.backgroundImage = `linear-gradient(90deg, ${bannerColor}, black)`; // Ajusté pour que le noir soit à droite
+            document.getElementById('banner').style.backgroundImage = `linear-gradient(90deg, ${bannerColor}, black)`;
+        }
+
+        // Modifier l'image de fond fivem-img si un paramètre est fourni
+        if (fivemImg) {
+            document.getElementById('fivemImg').style.backgroundImage = `url(${fivemImg})`;
         }
 
         // Afficher ou masquer l'image de fond
