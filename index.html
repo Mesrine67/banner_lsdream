@@ -81,6 +81,21 @@
             }
         }
     </style>
+    <script>
+        // Fonction pour lire les paramètres de l'URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        window.onload = function() {
+            // Lire le paramètre showImg
+            const showImg = getQueryParam('showImg');
+            if (showImg === 'false') {
+                document.querySelector('.fivem-img').style.display = 'none'; // Cacher l'image de fond
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="container_banner">
