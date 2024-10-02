@@ -40,7 +40,6 @@
             height: 100%;
             z-index: 2;
             opacity: .1;
-            background-image: url('https://raw.githubusercontent.com/Mesrine67/banner_lsdream/main/background.png');
             background-size: 100%;
             animation: backgroundMove 20s infinite ease-in-out;
         }
@@ -182,6 +181,7 @@
         const bannerText = getUrlParameter('name');
         const bannerColor = getUrlParameter('color');
         const showImg = getUrlParameter('showImg') === 'true';
+        const fivemImg = getUrlParameter('fivemImg'); // Récupère l'image fivem-img depuis l'URL
         const beatFadeImg = getUrlParameter('beatFadeImg'); // Récupère l'image beat-fade depuis l'URL
         const showBeatFade = getUrlParameter('showBeatFade') === 'true'; // Récupère si beat-fade doit être affiché
 
@@ -193,6 +193,11 @@
         // Modifier la couleur de la bannière
         if (bannerColor) {
             document.getElementById('banner').style.backgroundImage = `linear-gradient(0deg, ${bannerColor}, black)`;
+        }
+
+        // Modifier l'image de fond fivem-img si un paramètre est fourni
+        if (fivemImg) {
+            document.getElementById('fivemImg').style.backgroundImage = `url(${fivemImg})`;
         }
 
         // Afficher ou masquer l'image de fond
