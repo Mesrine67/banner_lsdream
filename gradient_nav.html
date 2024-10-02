@@ -61,13 +61,13 @@
 
         @keyframes colorChange {
             from {
-                background-size: 100% 100%;
+                background-size: 100% 100%; /* Taille initiale */
             } 
             50% {
-                background-size: 300% 300%;
+                background-size: 500% 500%; /* Taille plus grande pour des mouvements plus amples */
             } 
             to {
-                background-size: 100% 100%;
+                background-size: 100% 100%; /* Retour à la taille initiale */
             }
         }
     </style>
@@ -88,12 +88,18 @@
             return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
         }
 
-        // Appliquer les paramètres dynamiques uniquement pour la couleur
+        // Appliquer les paramètres dynamiques uniquement pour la couleur et l'affichage de l'image
         const bannerColor = getUrlParameter('color');
+        const showImg = getUrlParameter('showImg') === 'true';
 
         // Modifier la couleur de la bannière
         if (bannerColor) {
             document.getElementById('banner').style.backgroundImage = `linear-gradient(90deg, ${bannerColor}, black)`; // Ajusté pour le changement de couleur de gauche à droite
+        }
+
+        // Afficher ou masquer l'image de fond
+        if (!showImg) {
+            document.getElementById('fivemImg').style.display = 'none';
         }
     </script>
 </body>
