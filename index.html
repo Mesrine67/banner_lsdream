@@ -55,6 +55,30 @@
             text-shadow: 1px 1px 2px #0000007d;
         }
 
+        .beat-fade-img {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-image: url('https://raw.githubusercontent.com/bitc0de/fivem-items-gallery/main/images/weapons/ap_pistol_blueprint.png'); /* Image du pistolet */
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0;
+            animation: beatFade 5s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .beat-fade-img:nth-child(2) {
+            left: 50px;
+            top: 10px;
+            animation-delay: 1s;
+        }
+
+        .beat-fade-img:nth-child(3) {
+            left: 400px;
+            top: 30px;
+            animation-delay: 2s;
+        }
+
         @keyframes backgroundMove {
             from {
                 background-position: 0 0;
@@ -80,6 +104,17 @@
                 background-size: 100% 100%;
             }
         }
+
+        @keyframes beatFade {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
     </style>
 </head>
 <body>
@@ -87,6 +122,8 @@
         <div class="banner" id="banner">
             <span class="text" id="bannerText"> </span>
             <div class="fivem-img" id="fivemImg"></div>
+            <div class="beat-fade-img"></div>
+            <div class="beat-fade-img"></div>
         </div>
     </div>
 
