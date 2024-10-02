@@ -39,29 +39,30 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        .bullet-hole {
+        .weapon-img {
             position: absolute;
-            width: 50px;
-            height: 50px;
-            background-image: url('https://raw.githubusercontent.com/bitc0de/bullet_hole/main/bullet_hole.png'); /* Exemple d'effet de balle */
-            background-size: cover;
+            width: 60px;
+            height: 60px;
+            background-image: url('https://raw.githubusercontent.com/bitc0de/fivem-items-gallery/main/images/weapons/ap_pistol_blueprint.png'); /* Image du pistolet */
+            background-size: contain;
+            background-repeat: no-repeat;
             opacity: 0;
-            animation: bulletAppear 5s ease-in-out infinite;
+            animation: weaponAppear 5s ease-in-out infinite;
         }
 
-        .bullet-hole:nth-child(2) {
-            left: 100px;
-            top: 20px;
+        .weapon-img:nth-child(2) {
+            left: 50px;
+            top: 10px;
             animation-delay: 1s;
         }
 
-        .bullet-hole:nth-child(3) {
-            left: 300px;
-            top: 40px;
+        .weapon-img:nth-child(3) {
+            left: 400px;
+            top: 30px;
             animation-delay: 2s;
         }
 
-        @keyframes bulletAppear {
+        @keyframes weaponAppear {
             0%, 100% {
                 opacity: 0;
                 transform: scale(0.5);
@@ -88,9 +89,8 @@
 <body>
     <div class="container_banner">
         <div class="banner" id="banner">
-            <div class="bullet-hole"></div>
-            <div class="bullet-hole"></div>
-            <div class="bullet-hole"></div>
+            <div class="weapon-img"></div>
+            <div class="weapon-img"></div>
             <span id="bannerText">GTA Rebel Spirit</span> <!-- Le texte sera remplacé -->
         </div>
     </div>
